@@ -1,0 +1,16 @@
+.sapMShellGlobalOuterBackground {
+    background: #ffffff !important;
+}
+
+.sapMBarContainer {
+    background-color: #ffffff;
+}
+
+.sapMSFF {
+    border-radius: 10px;
+}
+
+.sapMTB-Transparent-CTX.sapMTB {
+    padding: 5px 0 5px 0 !important;
+    background-color: #ffffff;
+}

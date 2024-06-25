@@ -1,0 +1,53 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="Task3.controller.View1" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content width="100%">
+					<Table class="table" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}">
+						<headerToolbar>
+							<Toolbar height="auto">
+							
+										<FlexBox width="100%" alignContent="SpaceBetween" justifyContent="SpaceAround" alignItems="End" wrap="Wrap">
+											<SearchField id="refNo" maxLength="3" placeholder="Refrence Number" tooltip="{i18n>worklistSearchTooltip}" search=".onRefNo" width="250px"/>
+										
+											<SearchField id="status" maxLength="3" placeholder="Status" tooltip="{i18n>worklistSearchTooltip}" search=".onStatus" width="250px"/>
+											
+											<SearchField id="shift" maxLength="3" placeholder="Shift" tooltip="{i18n>worklistSearchTooltip}" search=".onShift" width="250px"/>
+										
+											<Button text="Go" width="250px" press=".onGo"/>
+										
+										</FlexBox>
+									
+							
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="orderIdCol">
+								<Text text="Reference Number" id="OrderID"/>
+							</Column>
+							<Column id="customerIdCol">
+								<Text text="Status" id="CustomerID"/>
+							</Column>
+							<Column id="orderDateCol">
+								<Text text="Date" id="OrderDate"/>
+							</Column>
+							<Column id="shipViaCol">
+								<Text text="shift" id="Zshift"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press=".onPress">
+								<cells>
+									<ObjectIdentifier id="refNoText" title="{SCHeaderSet>ZdateSta}"/>
+									<Text id="statusText" text="{SCHeaderSet>ZStatusSta}"/>
+									<Text id="dateText" text="{SCHeaderSet>ZdateGluFru}"/>
+									<Text id="shiftText" text="{SCHeaderSet>Zshift}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
