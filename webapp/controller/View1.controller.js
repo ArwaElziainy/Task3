@@ -14,31 +14,52 @@ sap.ui.define([
 				defaultBindingMode: "TwoWay"
 			});
 			oModel.attachMetadataFailed(function() {
-				console.log("error");
+				console.log("Error loading metadata");
 			});
-			this.getView().setModel(oModel);
+			this.getView().setModel(oModel, "odataModel");
 
 		},
 		onGo: function() {
-			var sServiceURL = "https://dev.monairy.com/sap/opu/odata/SAP/ZGW_SC_SRV/";
+			var oModel = this.getView().getModel("odataModel");
+			var oTable = this.byId("table");
 
-			var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceURL);
-			this.getView().setModel(oModel, "SCHeaderSet");
-			var oData = this.getView().getModel("SCHeaderSet");
-			oData.read("/SCHeaderSet", {
-				success: function(response) {
+			// Fetch all data from the OData service
+			oModel.read("/SCHeaderSet", {
+				success: function(oData) {
+					var oJSONModel = new JSONModel(oData);
+					oTable.setModel(oJSONModel, "SCHeaderSet2");
 
-					console.log("success");
-				},
+					oTable.bindItems({
+						path: "SCHeaderSet2>/results",
+						template: new sap.m.ColumnListItem({
+							cells: [
+								new sap.m.Text({
+									text: "{SCHeaderSet2>ZdateSta}"
+								}),
+								new sap.m.Text({
+									text: "{SCHeaderSet2>ZStatusSta}"
+								}),
+								new sap.m.Text({
+									text: "{SCHeaderSet2>ZdateGluFru}"
+								}),
+								new sap.m.Text({
+									text: "{SCHeaderSet2>Zshift}"
+								})
+							],
+							type: "Navigation",
+							press: this.onPress.bind(this)
+						})
+					});
+				}.bind(this),
 				error: function(oError) {
-
+					console.error("Error occurred: ", oError);
 				}
 			});
-		
+
 		},
 		onPress: function(oEvent) {
-		
-			var refNo = oEvent.getSource().getBindingContext('SCHeaderSet').getObject().ZdateSta;
+
+			var refNo = oEvent.getSource().getBindingContext('SCHeaderSet2').getObject().ZdateSta;
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("View2", {
@@ -53,38 +74,44 @@ sap.ui.define([
 		},
 		onRefNo: function(oEvent) {
 			var sQuery = this.byId("refNo").getValue();
-			console.log(sQuery)
 			if (sQuery) {
 				var sPath = "/SCHeaderSet(" + sQuery + ")";
-				var oModel = this.getView().getModel();
+				var oModel = this.getView().getModel("odataModel");
 
-				this.byId("table").unbindItems();
+				if (!oModel) {
+					console.error("OData model not found");
+					return;
+				}
 
+				var oTable = this.byId("table");
+
+				// Unbind previous items
+				oTable.unbindItems();
+
+				// Fetch specific entry based on sQuery
 				oModel.read(sPath, {
 					success: function(oData) {
-						console.log("Data fetched successfully:", oData);
-
 						var aData = [oData];
 						var oJSONModel = new JSONModel({
 							results: aData
 						});
-						this.getView().setModel(oJSONModel, "SCHeaderSet");
+						oTable.setModel(oJSONModel, "SCHeaderSet2");
 
-						this.byId("table").bindItems({
-							path: "SCHeaderSet>/results",
+						oTable.bindItems({
+							path: "SCHeaderSet2>/results",
 							template: new sap.m.ColumnListItem({
 								cells: [
 									new sap.m.Text({
-										text: "{SCHeaderSet>ZdateSta}"
+										text: "{SCHeaderSet2>ZdateSta}"
 									}),
 									new sap.m.Text({
-										text: "{SCHeaderSet>ZStatusSta}"
+										text: "{SCHeaderSet2>ZStatusSta}"
 									}),
 									new sap.m.Text({
-										text: "{SCHeaderSet>ZdateGluFru}"
+										text: "{SCHeaderSet2>ZdateGluFru}"
 									}),
 									new sap.m.Text({
-										text: "{SCHeaderSet>Zshift}"
+										text: "{SCHeaderSet2>Zshift}"
 									})
 								],
 								type: "Navigation",
@@ -96,54 +123,11 @@ sap.ui.define([
 						console.error("Error occurred: ", oError);
 					}
 				});
-			}
-		},
+			} else {
+				// var oTable = this.byId("table");
 
-		onStatus: function(oEvent) {
-			var sQuery = this.byId("status").getValue();
-			console.log(sQuery)
-			if (sQuery) {
-				var sPath = "/SCHeaderSet(" + sQuery + ")";
-				var oModel = this.getView().getModel();
-
-				this.byId("table").unbindItems();
-
-				oModel.read(sPath, {
-					success: function(oData) {
-						console.log("Data fetched successfully:", oData);
-
-						var aData = [oData];
-						var oJSONModel = new JSONModel({
-							results: aData
-						});
-						this.getView().setModel(oJSONModel, "detailModel");
-
-						this.byId("table").bindItems({
-							path: "detailModel>/results",
-							template: new sap.m.ColumnListItem({
-								cells: [
-									new sap.m.Text({
-										text: "{detailModel>ZdateSta}"
-									}),
-									new sap.m.Text({
-										text: "{detailModel>ZStatusSta}"
-									}),
-									new sap.m.Text({
-										text: "{detailModel>ZdateGluFru}"
-									}),
-									new sap.m.Text({
-										text: "{detailModel>Zshift}"
-									})
-								],
-								type: "Navigation",
-								press: this.onPress.bind(this)
-							})
-						});
-					}.bind(this),
-					error: function(oError) {
-						console.error("Error occurred: ", oError);
-					}
-				});
+				// Unbind previous items
+				oTable.unbindItems();
 			}
 		}
 	});

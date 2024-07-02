@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/routing/History"
-], function(Controller, History) {
+	"sap/ui/core/routing/History",
+		"sap/m/MessageToast"
+], function(Controller, History, MessageToast) {
 	"use strict";
 
 	return Controller.extend("Task3.controller.View2", {
@@ -121,7 +122,7 @@ sap.ui.define([
 				error: function(oError) {
 					console.log("error")
 				}
-			})
+			});
 
 		},
 
@@ -131,7 +132,7 @@ sap.ui.define([
 
 			var refNo = this.getView().byId("genRef");
 			var refValue = refNo.getText();
-			console.log(refValue)
+		
 
 			var oUpdatedData = {
 				// General Details
@@ -194,7 +195,7 @@ sap.ui.define([
 
 			oModel.update("/SCHeaderSet(" + refValue + ")", oUpdatedData, {
 				success: function() {
-					console.log("Success")
+						MessageToast.show("Refrence Number: " + refValue + " Updated successfully");
 				},
 				error: function(oError) {
 					console.log(oError);

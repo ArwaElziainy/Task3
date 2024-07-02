@@ -7,11 +7,8 @@
 							<Toolbar height="auto">
 							
 										<FlexBox width="100%" alignContent="SpaceBetween" justifyContent="SpaceAround" alignItems="End" wrap="Wrap">
-											<SearchField id="refNo" maxLength="3" placeholder="Refrence Number" tooltip="{i18n>worklistSearchTooltip}" search=".onRefNo" width="250px"/>
-										
-											<SearchField id="status"  placeholder="Status" tooltip="{i18n>worklistSearchTooltip}" search=".onStatus" width="250px"/>
-											
-											<SearchField id="shift"  placeholder="Shift" tooltip="{i18n>worklistSearchTooltip}" search=".onShift" width="250px"/>
+											<SearchField id="refNo" maxLength="3" placeholder="Refrence Number" tooltip="{i18n>worklistSearchTooltip}" liveChange=".onRefNo" width="250px"/>
+							
 											
 											<Button class="go" text="Go" width="250px" press=".onGo"/>
 											<Button class="editIcon" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>
@@ -20,7 +17,7 @@
 									
 							
 							</Toolbar>
-							<Table class="table" width="96%" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid" growing="true" growingScrollToLoad="true">
+							<Table class="table" width="96%" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid" >
 						
 					
 						<columns>
