@@ -1,12 +1,22 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function(Controller, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, Filter, FilterOperator, JSONModel) {
 	"use strict";
 
 	return Controller.extend("Task3.controller.View1", {
 		onInit: function() {
+			var sServiceUrl = "https://dev.monairy.com/sap/opu/odata/SAP/ZGW_SC_SRV/";
+			var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, {
+				useBatch: false,
+				defaultBindingMode: "TwoWay"
+			});
+			oModel.attachMetadataFailed(function() {
+				console.log("error");
+			});
+			this.getView().setModel(oModel);
 
 		},
 		onGo: function() {
@@ -24,68 +34,117 @@ sap.ui.define([
 
 				}
 			});
+		
 		},
 		onPress: function(oEvent) {
-
+		
 			var refNo = oEvent.getSource().getBindingContext('SCHeaderSet').getObject().ZdateSta;
-
-			console.log(refNo);
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("View2", {
 				refNo: refNo
 			}, false);
 		},
+		onCreate: function(oEvent) {
+
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			console.log(oRouter.navTo("View3"))
+			oRouter.navTo("View3");
+		},
 		onRefNo: function(oEvent) {
-			// var sServiceUri = "https://dev.monairy.com/sap/opu/odata/SAP/ZGW_SC_SRV/";
-			// var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUri);
-			// this.getView().setModel(oModel, "SCHeaderSet");
-			// this.getView().getModel("SCHeaderSet");
-			// var aFilter = [], sQuery= oEvent.getParameter("query"),
-			// oList = this.getView().byId("table"),
-			// oBinding = oList.getBinding("items");
-
-			// if(sQuery){
-			// 	aFilter.push(new Filter("ZdateSta",FilterOperator.Contains, sQuery));
-			// }
-			// oBinding.filter(aFilter);
-
-			// var	sQuery= oEvent.getParameter("query");
-			// 		oModel1.read("/SCHeaderSet", {
-			// 		filters: [
-			// 			new sap.ui.model.Filter("ZdateSta", sap.ui.model.FilterOperator.EQ, sQuery)
-			// 		],
-			// 		success: function(oData2) {
-
-			// 		}.bind(this),
-			// 		error: function(oError) {
-			// 			console.log(oError)
-			// 		}
-			// 	});
-
-			
-			var aFilter = [],
-				sQuery = oEvent.getParameter("query"),
-				// retrieve list control
-				oList = this.getView().byId("table"),
-				// get binding for aggregation 'items'
-				oBinding = oList.getBinding("items");
-			
+			var sQuery = this.byId("refNo").getValue();
+			console.log(sQuery)
 			if (sQuery) {
-				aFilter.push(new sap.ui.model.Filter("6", sap.ui.model.FilterOperator.Contains, sQuery));
+				var sPath = "/SCHeaderSet(" + sQuery + ")";
+				var oModel = this.getView().getModel();
+
+				this.byId("table").unbindItems();
+
+				oModel.read(sPath, {
+					success: function(oData) {
+						console.log("Data fetched successfully:", oData);
+
+						var aData = [oData];
+						var oJSONModel = new JSONModel({
+							results: aData
+						});
+						this.getView().setModel(oJSONModel, "SCHeaderSet");
+
+						this.byId("table").bindItems({
+							path: "SCHeaderSet>/results",
+							template: new sap.m.ColumnListItem({
+								cells: [
+									new sap.m.Text({
+										text: "{SCHeaderSet>ZdateSta}"
+									}),
+									new sap.m.Text({
+										text: "{SCHeaderSet>ZStatusSta}"
+									}),
+									new sap.m.Text({
+										text: "{SCHeaderSet>ZdateGluFru}"
+									}),
+									new sap.m.Text({
+										text: "{SCHeaderSet>Zshift}"
+									})
+								],
+								type: "Navigation",
+								press: this.onPress.bind(this)
+							})
+						});
+					}.bind(this),
+					error: function(oError) {
+						console.error("Error occurred: ", oError);
+					}
+				});
 			}
-			// apply filter. an empty filter array simply removes the filter
-			// which will make all entries visible again
-			oBinding.filter(aFilter);
-			console.log(aFilter);
+		},
 
-			// var sQuery = oEvent.getParameter("query");
-			// var oTable = this.getView().byId("table");
-			// var oBinding = oTable.getBinding("items");
-			// var oFilter = new Filter("ZdateSta", FilterOperator.Contains, sQuery);
-			// console.log(oFilter)
-			// oBinding.filter([oFilter]);
+		onStatus: function(oEvent) {
+			var sQuery = this.byId("status").getValue();
+			console.log(sQuery)
+			if (sQuery) {
+				var sPath = "/SCHeaderSet(" + sQuery + ")";
+				var oModel = this.getView().getModel();
 
+				this.byId("table").unbindItems();
+
+				oModel.read(sPath, {
+					success: function(oData) {
+						console.log("Data fetched successfully:", oData);
+
+						var aData = [oData];
+						var oJSONModel = new JSONModel({
+							results: aData
+						});
+						this.getView().setModel(oJSONModel, "detailModel");
+
+						this.byId("table").bindItems({
+							path: "detailModel>/results",
+							template: new sap.m.ColumnListItem({
+								cells: [
+									new sap.m.Text({
+										text: "{detailModel>ZdateSta}"
+									}),
+									new sap.m.Text({
+										text: "{detailModel>ZStatusSta}"
+									}),
+									new sap.m.Text({
+										text: "{detailModel>ZdateGluFru}"
+									}),
+									new sap.m.Text({
+										text: "{detailModel>Zshift}"
+									})
+								],
+								type: "Navigation",
+								press: this.onPress.bind(this)
+							})
+						});
+					}.bind(this),
+					error: function(oError) {
+						console.error("Error occurred: ", oError);
+					}
+				});
+			}
 		}
 	});
 });

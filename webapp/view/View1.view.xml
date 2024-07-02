@@ -1,42 +1,44 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="Task3.controller.View1" displayBlock="true">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="Task3.controller.View1"  displayBlock="true">
 	<App>
 		<pages>
 			<Page title="{i18n>title}">
 				<content width="100%">
-					<Table class="table" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}">
-						<headerToolbar>
+					
 							<Toolbar height="auto">
 							
 										<FlexBox width="100%" alignContent="SpaceBetween" justifyContent="SpaceAround" alignItems="End" wrap="Wrap">
 											<SearchField id="refNo" maxLength="3" placeholder="Refrence Number" tooltip="{i18n>worklistSearchTooltip}" search=".onRefNo" width="250px"/>
 										
-											<SearchField id="status" maxLength="3" placeholder="Status" tooltip="{i18n>worklistSearchTooltip}" search=".onStatus" width="250px"/>
+											<SearchField id="status"  placeholder="Status" tooltip="{i18n>worklistSearchTooltip}" search=".onStatus" width="250px"/>
 											
-											<SearchField id="shift" maxLength="3" placeholder="Shift" tooltip="{i18n>worklistSearchTooltip}" search=".onShift" width="250px"/>
-										
-											<Button text="Go" width="250px" press=".onGo"/>
+											<SearchField id="shift"  placeholder="Shift" tooltip="{i18n>worklistSearchTooltip}" search=".onShift" width="250px"/>
+											
+											<Button class="go" text="Go" width="250px" press=".onGo"/>
+											<Button class="editIcon" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>
 										
 										</FlexBox>
 									
 							
 							</Toolbar>
-						</headerToolbar>
+							<Table class="table" width="96%" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid" growing="true" growingScrollToLoad="true">
+						
+					
 						<columns>
-							<Column id="orderIdCol">
+							<Column id="orderIdCol" hAlign="Center">
 								<Text text="Reference Number" id="OrderID"/>
 							</Column>
-							<Column id="customerIdCol">
+							<Column id="customerIdCol" hAlign="Center">
 								<Text text="Status" id="CustomerID"/>
 							</Column>
-							<Column id="orderDateCol">
+							<Column id="orderDateCol" hAlign="Center">
 								<Text text="Date" id="OrderDate"/>
 							</Column>
-							<Column id="shipViaCol">
+							<Column id="shipViaCol" hAlign="Center">
 								<Text text="shift" id="Zshift"/>
 							</Column>
 						</columns>
 						<items>
-							<ColumnListItem type="Navigation" press=".onPress">
+							<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
 								<cells>
 									<ObjectIdentifier id="refNoText" title="{SCHeaderSet>ZdateSta}"/>
 									<Text id="statusText" text="{SCHeaderSet>ZStatusSta}"/>
@@ -45,6 +47,9 @@
 								</cells>
 							</ColumnListItem>
 						</items>
+					<customData>
+					    <sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+					</customData>
 					</Table>
 				</content>
 			</Page>

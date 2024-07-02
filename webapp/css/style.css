@@ -5,12 +5,103 @@
 .sapMBarContainer {
     background-color: #ffffff;
 }
-
+#__button0-inner{
+	border:none ;
+	background-color:transparent;
+}
 .sapMSFF {
     border-radius: 10px;
-}
+    height:1.7rem;
 
+}
+.sapMSFB{
+	    line-height: 1.5rem;
+}
+.sapMFlexBoxBGTransparent{
+	background-color:#fff;
+}
 .sapMTB-Transparent-CTX.sapMTB {
     padding: 5px 0 5px 0 !important;
     background-color: #ffffff;
+    
+}
+.sapMBtn:hover>.sapMBtnHoverable {
+    background-color: transparent !important;
+    border-color: transparent;
+    cursor:default;
+}
+
+#__button0-BDI-content{
+	background-color:#0070f2;
+	color:#ffffff;
+	padding:5px 10px;
+	border-radius:5px;
+	 cursor:pointer;
+	 
+}
+.sapMBtn{
+	border:none !important;
+}
+#__button0-BDI-content:hover{
+	background-color:#0064d9;
+}
+html.sap-desktop .sapMBtn:focus>.sapMFocusable {
+    outline: transparent;
+}
+.sapMScrollContScroll{
+	padding:15px 30px;
+	background-color:#ffffff !important;
+}
+
+/*table{*/
+/*	margin:25px !important;*/
+
+/*}*/
+.sapMTableTH{
+	background-color:#fff !important;
+
+}
+columns{
+		border-radius:10px;
+}
+
+/*View2*/
+Label{
+	color:#556b82;
+}
+.sapMBtnInner{
+	background-color: transparent;
+    border: none;
+}
+.editIcon .sapMBtnIcon{
+	font-size:1.3rem;
+	color:#0070f2;
+	cursor:pointer;
+}
+.sapMHrdrCntrInner{
+	width:99%;
+}
+.update.sapMInputBase{
+	height:1.7rem;
+	margin:5px;
+}
+.update .sapMInputBaseContentWrapper {
+    border-radius: 10px;
+    border:solid 1px #0070f2;
+}
+.anchor.sapMBtn:hover>.sapMBtnHoverable{
+	cursor:pointer;
+}
+.editIcon .sapMBtnIcon:focus>.sapMBtnActive.sapMFocusable{
+		color: #0070f2;
+}
+html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable{
+	color: #0070f2;
+}
+.sapMITH {
+	background-color:#ffffff;
+}
+.table{
+	margin:30px auto;
+	border-radius:20px;
 }

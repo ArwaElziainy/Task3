@@ -1,51 +1,17 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="Task3.controller.View2" displayBlock="true">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" controllerName="Task3.controller.View3" displayBlock="true">
 	<App>
 		<pages>
 			<Page title="{i18n>title}" showNavButton="true" navButtonPress=".onNavBack">
 				<HeaderContainer>
-					<VBox>
-						<FlexBox justifyContent="SpaceBetween" alignContent="SpaceBetween" alignItems="Center">
-							<HBox>
-								<FlexBox width="400px" justifyContent="SpaceBetween">
-									<VBox>
-										<HBox alignItems="Center">
-											<FlexBox>
-												<Label text=" Ref Number : "/>
-												<Text id="genRef"/>
-											</FlexBox>
-										</HBox>
-										<HBox alignItems="Center">
-											<FlexBox alignItems="Center">
-												<Label text=" Shift : "/>
-												<Text id="genShift"/>
-											</FlexBox>
-										</HBox>
-										<HBox alignItems="Center" alignContent="Center">
-											<FlexBox alignItems="Center">
-												<Label text="Date : "/>
-												<Text id="genDate"/>
-											</FlexBox>
-										</HBox>
-										<HBox alignItems="Center">
-											<FlexBox>
-												<Label text="Status : "/>
-												<Text id="genStatus"/>
-											</FlexBox>
-										</HBox>
-									</VBox>
-									<Button class="editIcon" icon="sap-icon://edit" tooltip="Edit" press=".onEdit"/>
-								</FlexBox>
-							</HBox>
-								<Button class="editIcon" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>
-						</FlexBox>
-					
-					</VBox>
+						<Button class="editIcon" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>
 				</HeaderContainer>
 				<content>
+					
 					<IconTabBar showOverflowSelectList="true">
 						<items>
 							<IconTabFilter text="General Information">
-						
+							
 								<l:Grid>
 									<l:content>
 										<FlexBox alignItems="Center" direction="Column">
@@ -66,7 +32,7 @@
 												<l:GridData span="L6 M6 S12"/>
 											</layoutData>
 										</FlexBox>
-									
+										
 									</l:content>
 								</l:Grid>
 							</IconTabFilter>
@@ -309,8 +275,7 @@
 										</FlexBox>
 									</l:content>
 								</l:Grid>
-								<!--فرق تغير تانكات حليب النشا-->
-								<!--الجدول-->
+						
 								<Table class="table" id="table" width="80%" backgroundDesign="Transparent">
 									<columns>
 										<Column id="Kper" hAlign="Center">
@@ -354,8 +319,7 @@
 										</ColumnListItem>
 									</items>
 								</Table>
-								<!--الجدول-->
-								<!--الباقي-->
+							
 								<l:Grid>
 									<l:content>
 										<FlexBox justifyContent="SpaceAround" wrap="Wrap">
@@ -415,218 +379,7 @@
 									<Input id="GT"/>
 								</FlexBox>
 							</IconTabFilter>
-							<IconTabFilter text="Outputs">
-								<Table class="table" id="outTable" width="80%" backgroundDesign="Transparent">
-									<columns>
-										<Column hAlign="Center">
-											<Label class="title2" text="Refrence Number" labelFor="RefNo"/>
-										</Column>
-										<Column hAlign="Center">
-											<Text class="title2" id="RefNo"/>
-										</Column>
-									</columns>
-									<items>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label class="title2" text="Status"/>
-												<Text id="status2"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="عدد أمتار عداد 1"/>
-												<Text id="meter1"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="عدد أمتار عداد 2"/>
-												<Text id="meter2"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية تحويل بالطن جاف عداد 1"/>
-												<Text id="tonD1"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية تحويل بالطن جاف عداد 2"/>
-												<Text id="tonD2"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية تحويل بالطن رطب عداد 1"/>
-												<Text id="tonR1"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية تحويل بالطن رطب عداد 2"/>
-												<Text id="tonR2"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="إجمالى التحويل (G)"/>
-												<Text id="G"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="إجمالى التحويل للجلوكوز(G1)"/>
-												<Text id="G1"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="اجمالي تانك النشا J "/>
-												<Text id="J"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="إنتاج النشا الجاف(N) "/>
-												<Text id="N"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="فرق التغير (R)"/>
-												<Text id="R"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="نسبة الكسب"/>
-												<Text id="KR"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية زيت من جنين الندى NZ"/>
-												<Text id="NZ"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية الكسب NK "/>
-												<Text id="NK"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية النشا فى دقيق ذرة الندى NDS"/>
-												<Text id="NDS"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية الجلوتين فى دقيق ذرة الندى NDG"/>
-												<Text id="NDG"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="البروتيلان الجاف BRG "/>
-												<Text id="BRG"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="البروتيلان المضاف على الجلوتوفيد BR"/>
-												<Text id="BR"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="بومية مياة النقع بعد المعالجة"/>
-												<Text id="YW"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="عدد امتار مياة النقع المضافة على الجلوتوفيد"/>
-												<Text id="mWatG"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية مياة النقع المضافة على الجلوتوفيد الجاف"/>
-												<Text id="watDG"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية مياة النقع المضافة على الجلوتوفيد الرطب WG"/>
-												<Text id="WG"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="الكسب المعبأ PK"/>
-												<Text id="OPK"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="جلوتوفيد معبأPG "/>
-												<Text id="OPG"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="جلوتين معبأ GT"/>
-												<Text id="OGT"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="الزيت PZ"/>
-												<Text id="PZ"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="مياة النقع المباعة فقط"/>
-												<Text id="SW"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="إجمالى إنتاج حليب النشا"/>
-												<Text id="TM"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية المادة الصلبة فى مياة النقع المباعة WW"/>
-												<Text id="WW"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label text="كمية المادة الصلبة عند 12% رطوبة WW2"/>
-												<Text id="WW2"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label class="title2" text="Changed by"/>
-												<Text id="by"/>
-											</cells>
-										</ColumnListItem>
-										<ColumnListItem vAlign="Middle">
-											<cells>
-												<Label class="title2" text="Changed on "/>
-												<Text id="on"/>
-											</cells>
-										</ColumnListItem>
-									</items>
-								</Table>
-							</IconTabFilter>
+				
 						</items>
 					</IconTabBar>
 				</content>

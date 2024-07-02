@@ -81,13 +81,13 @@
 				"name": "View1",
 				"target": "View1"
 			}, {
-				"pattern": "{refNo}",
-				"name": "View2",
-				"target": "View2"
-			}, {
 				"pattern": "View3",
 				"name": "View3",
 				"target": "View3"
+			}, {
+				"pattern": "{refNo}",
+				"name": "View2",
+				"target": "View2"
 			}],
 			"targets": {
 				"View1": {
@@ -96,19 +96,19 @@
 					"viewLevel": 0,
 					"controlAggregation": "pages"
 				},
-				"View2": {
-					"viewName": "View2",
-					"viewType": "XML",
-					"transition": "slide",
-					"controlAggregation": "pages",
-					"viewLevel": 1
-				},
 				"View3": {
 					"viewName": "View3",
 					"viewType": "XML",
 					"transition": "slide",
 					"controlAggregation": "pages",
 					"viewLevel": 2
+				},
+				"View2": {
+					"viewName": "View2",
+					"viewType": "XML",
+					"transition": "slide",
+					"controlAggregation": "pages",
+					"viewLevel": 1
 				}
 			}
 		},
