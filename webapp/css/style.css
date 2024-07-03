@@ -5,103 +5,165 @@
 .sapMBarContainer {
     background-color: #ffffff;
 }
-#__button0-inner{
-	border:none ;
-	background-color:transparent;
+
+#__button0-inner {
+    border: none;
+    background-color: transparent;
 }
+
 .sapMSFF {
     border-radius: 10px;
-    height:1.7rem;
+    height: 1.7rem;
+}
 
+.sapMSFB {
+    line-height: 1.5rem;
 }
-.sapMSFB{
-	    line-height: 1.5rem;
+
+.sapMFlexBoxBGTransparent {
+    background-color: #fff;
 }
-.sapMFlexBoxBGTransparent{
-	background-color:#fff;
-}
+
 .sapMTB-Transparent-CTX.sapMTB {
     padding: 5px 0 5px 0 !important;
     background-color: #ffffff;
-    
 }
+
 .sapMBtn:hover>.sapMBtnHoverable {
     background-color: transparent !important;
     border-color: transparent;
-    cursor:default;
+    cursor: default;
 }
 
-#__button0-BDI-content{
-	background-color:#0070f2;
-	color:#ffffff;
-	padding:5px 10px;
-	border-radius:5px;
-	 cursor:pointer;
-	 
+#__button0-BDI-content {
+    background-color: #0070f2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
-.sapMBtn{
-	border:none !important;
+.sapMLIBFocusable:focus{
+	outline:1px solid  #0070f2 !important;
 }
-#__button0-BDI-content:hover{
-	background-color:#0064d9;
+.sapMTableRowCustomFocus:focus>:not(.sapMListTblDummyCell:last-child)::before{
+	top:0;
+	bottom:0;
+	border-top:1px solid  #0070f2 !important;
+	border-bottom:1px solid  #0070f2 !important;
+	border-left:1px solid  #0070f2 !important;
+	border-right:1px solid  #0070f2 !important;
 }
+.sapMBtn {
+    border: none !important;
+}
+
+#__button0-BDI-content:hover {
+    background-color: #0064d9;
+}
+
 html.sap-desktop .sapMBtn:focus>.sapMFocusable {
     outline: transparent;
 }
-.sapMScrollContScroll{
-	padding:15px 30px;
-	background-color:#ffffff !important;
+
+.sapMScrollContScroll {
+    padding: 15px 30px;
+    background-color: #ffffff !important;
 }
+
 
 /*table{*/
+
+
 /*	margin:25px !important;*/
 
-/*}*/
-.sapMTableTH{
-	background-color:#fff !important;
 
+/*}*/
+
+.sapMTableTH {
+    background-color: #fff !important;
 }
-columns{
-		border-radius:10px;
+
+columns {
+    border-radius: 10px;
 }
+
 
 /*View2*/
-Label{
-	color:#556b82;
+
+.sapMLabel {
+    color: #000 !important;
 }
-.sapMBtnInner{
-	background-color: transparent;
+
+.sapMBtnInner {
+    background-color: transparent;
     border: none;
 }
-.editIcon .sapMBtnIcon{
-	font-size:1.3rem;
-	color:#0070f2;
-	cursor:pointer;
+
+.editIcon .sapMBtnIcon {
+    font-size: 1.3rem;
+    color: #0070f2;
+    cursor: pointer;
 }
-.sapMHrdrCntrInner{
-	width:99%;
+
+.sapMHrdrCntrInner {
+    width: 99%;
 }
-.update.sapMInputBase{
-	height:1.7rem;
-	margin:5px;
+
+.update.sapMInputBase {
+    height: 1.7rem;
+    margin: 5px;
 }
+
 .update .sapMInputBaseContentWrapper {
     border-radius: 10px;
-    border:solid 1px #0070f2;
+    border: solid 1px #0070f2;
 }
-.anchor.sapMBtn:hover>.sapMBtnHoverable{
-	cursor:pointer;
+
+.anchor.sapMBtn:hover>.sapMBtnHoverable {
+    cursor: pointer;
 }
-.editIcon .sapMBtnIcon:focus>.sapMBtnActive.sapMFocusable{
-		color: #0070f2;
+
+.editIcon .sapMBtnIcon:focus>.sapMBtnActive.sapMFocusable {
+    color: #0070f2;
 }
-html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable{
-	color: #0070f2;
+
+html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
+    color: #0070f2;
 }
-.sapMITH {
-	background-color:#ffffff;
+
+.sapUxAPAnchorBar.sapMTB {
+    background-color: #fff !important;
 }
-.table{
-	margin:30px auto;
-	border-radius:20px;
+
+.table {
+    margin: 30px auto;
+    border-radius: 20px;
+}
+
+.sapUxAPObjectPageSection .sapUxAPObjectPageSectionContainer>.sapUiRespGrid {
+    background-color: #fff;
+    width: 95% !important;
+    margin: 15px auto !important;
+    border-radius: 20px;
+}
+
+.sapUxAPObjectPageSectionHeader {
+    border: none !important;
+}
+
+.sapUxAPObjectPageSectionTitle {
+    color: #000 !important;
+}
+
+.sapUxAPObjectPageSection:focus {
+    outline: 1px solid #0070f2 !important;
+    outline-offset: -1px;
+}
+
+.sapUxAPObjectPageSubSection:focus {
+    outline: 1px solid #0070f2 !important;
+    outline-offset: -1px;
+}
+.sapMFocus.sapMInputBase .sapMInputBaseContentWrapper:not(.sapMInputBaseDisabledWrapper)::before{
+	border:none;
 }
