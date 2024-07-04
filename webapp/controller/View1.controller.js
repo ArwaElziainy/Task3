@@ -14,7 +14,7 @@ sap.ui.define([
 				defaultBindingMode: "TwoWay"
 			});
 			oModel.attachMetadataFailed(function() {
-				console.log("Error loading metadata");
+			
 			});
 			this.getView().setModel(oModel, "odataModel");
 
@@ -22,7 +22,6 @@ sap.ui.define([
 		onGo: function() {
 			var oModel = this.getView().getModel("odataModel");
 			var oTable = this.byId("table");
-			console.log(oModel);
 
 			// Fetch all data from the OData service
 			oModel.read("/SCHeaderSet", {
