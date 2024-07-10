@@ -167,3 +167,50 @@ html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
 .sapMFocus.sapMInputBase .sapMInputBaseContentWrapper:not(.sapMInputBaseDisabledWrapper)::before{
 	border:none;
 }
+.sapMFlexItem{
+	margin-left:10px;
+}
+.displayNone{
+	display:none;
+}
+/*.sapMFlexItemAlignAuto{*/
+/*	align-self: Center !important;*/
+/*}*/
+.marginLeft{
+	margin:0 0 0 25px;
+}
+#__box57 #__data276,#__box72 #__data281.sapMFlexItemAlignAuto {
+	min-width: 100% !important;
+}
+.sapUiFormCLSmallColumns .sapUiFormCLElement>.sapUiFormCLCellsS12{
+	width:auto !important;
+}
+#__button2-BDI-content{
+	    background-color: #0070f2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*View3*/
+.sapMFlexBoxAlignItemsStretch {
+    align-items: center;
+}
+#__button11-BDI-content{
+	    background-color: #0070f2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#__xmlview2--save2-BDI-content{
+		    background-color: #0070f2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.save{
+	float:right;
+	margin-right:35px;
+}
