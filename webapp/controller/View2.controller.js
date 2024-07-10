@@ -324,16 +324,17 @@ location.reload();
 			oRouter.navTo("View3");
 		},
 		onNavBack: function() {
+ window.history.back();
 
-			var oHistory = History.getInstance();
-			var sPreviousHash = oHistory.getPreviousHash();
+			// var oHistory = History.getInstance();
+			// var sPreviousHash = oHistory.getPreviousHash();
 
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-			} else {
-				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("overview", {}, true);
-			}
+			// if (sPreviousHash !== undefined) {
+			// 	window.history.go(-1);
+			// } else {
+			// 	var oRouter = this.getOwnerComponent().getRouter();
+			// 	oRouter.navTo("overview", {}, true);
+			// }
 		}
 	});
 });
