@@ -35,7 +35,7 @@
     cursor: default;
 }
 
-#__button0-BDI-content {
+Button.go span bdi {
     background-color: #0070f2;
     color: #ffffff;
     padding: 5px 10px;
@@ -93,7 +93,19 @@ columns {
 .sapMLabel {
     color: #000 !important;
 }
-
+.sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState){
+	border-radius:10px;
+	height:1.7rem;
+}
+.sapMInputBase:not(.sapMInputBaseHasEndIcons):not(.sapMInputBaseHasBeginIcons) .sapMInputBaseContentWrapper{
+	height:1.7rem;
+}
+.sapMInputBase {
+	height:1.7rem;
+}
+.sapMInputBaseIconContainer .sapUiIcon.sapMInputBaseIcon{
+	line-height:1.7rem;
+}
 .sapMBtnInner {
     background-color: transparent;
     border: none;
@@ -170,12 +182,8 @@ html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
 .sapMFlexItem{
 	margin-left:10px;
 }
-.displayNone{
-	display:none;
-}
-/*.sapMFlexItemAlignAuto{*/
-/*	align-self: Center !important;*/
-/*}*/
+
+
 .marginLeft{
 	margin:0 0 0 25px;
 }
@@ -185,26 +193,14 @@ html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
 .sapUiFormCLSmallColumns .sapUiFormCLElement>.sapUiFormCLCellsS12{
 	width:auto !important;
 }
-#__button2-BDI-content{
-	    background-color: #0070f2;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 /*View3*/
 .sapMFlexBoxAlignItemsStretch {
     align-items: center;
 }
-#__button11-BDI-content{
-	    background-color: #0070f2;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#__xmlview2--save2-BDI-content{
-		    background-color: #0070f2;
+
+Button.save span bdi{
+	background-color: #0070f2 !important;
     color: #ffffff;
     padding: 5px 10px;
     border-radius: 5px;
