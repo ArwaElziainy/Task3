@@ -493,14 +493,6 @@
 										<uxap:blocks>
 											<VBox>
 									
-												<f:SimpleForm layout="ColumnLayout" columnsM="2" columnsL="2">
-													<f:content>
-														<Label text="Refrence Number "/>
-														<Text id="RefNo"/>
-														<Label text="Status" />
-														<Text id="status2" />
-													</f:content>
-												</f:SimpleForm>
 												<f:SimpleForm editable="false" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<f:content>
 														<Label text="عدد أمتار عداد 1"/>
@@ -582,6 +574,7 @@
 						</uxap:sections>
 					</uxap:ObjectPageLayout>
 					<Button id="save2" class="save" text="Save" press=".onEdit" visible="false"/>
+					<Button id="cancel" class="save" text="cancel" press=".onCancel" visible="false"/>
 				</content>
 			</Page>
 		</pages>

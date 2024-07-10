@@ -87,8 +87,6 @@ sap.ui.define([
 					this.getView().byId("PGTex").setText(oData2.ZBy4Sta);
 					this.getView().byId("GTTex").setText(oData2.ZBy7Sta);
 					//Outputs
-					this.getView().byId("RefNo").setText(oData2.ZdateSta);
-					this.getView().byId("status2").setText(oData2.ZStatusSta);
 					this.getView().byId("meter1").setText(oData2.ZTank8Sta);
 					this.getView().byId("meter2").setText(oData2.ZTank9Sta);
 					this.getView().byId("tonD1").setText(oData2.ZTank10Sta);
@@ -130,7 +128,7 @@ sap.ui.define([
 
 		},
 		onChange: function() {
-						var displayBlock = document.getElementsByClassName("displayNone");
+			var displayBlock = document.getElementsByClassName("displayNone");
 			for (var i2 = 0; i2 < displayBlock.length; i2++) {
 				displayBlock[i2].style.display = "Block";
 			}
@@ -139,6 +137,7 @@ sap.ui.define([
 				editIcon[i].style.display = "none";
 			}
 			this.getView().byId("save2").setVisible(true);
+			this.getView().byId("cancel").setVisible(true);
 
 			var sServiceUri = "https://dev.monairy.com/sap/opu/odata/SAP/ZGW_SC_SRV/";
 
@@ -298,24 +297,34 @@ sap.ui.define([
 			oModel.update("/SCHeaderSet(" + refValue + ")", oUpdatedData, {
 				success: function() {
 					MessageToast.show("Refrence Number: " + refValue + " Updated successfully");
-					
+
 					this.getView().byId("save2").setVisible(false);
 
 					var displayBlock = document.getElementsByClassName("displayNone");
 					for (var i2 = 0; i2 < displayBlock.length; i2++) {
 						displayBlock[i2].style.display = "none";
 					}
-			
-				
-location.reload();
-					
+
+					location.reload();
 
 				}.bind(this),
 				error: function(oError) {
 					console.log(oError);
 				}
 			});
-			
+
+		},
+		onCancel: function() {
+			var displayBlock = document.getElementsByClassName("displayNone");
+			for (var i2 = 0; i2 < displayBlock.length; i2++) {
+				displayBlock[i2].style.display = "none";
+			}
+			var editIcon = document.getElementsByClassName("onEdit");
+			for (var i = 0; i < editIcon.length; i++) {
+				editIcon[i].style.display = "block";
+			}
+			this.getView().byId("save2").setVisible(false);
+			this.getView().byId("cancel").setVisible(false);
 		},
 		onCreate: function() {
 
@@ -324,7 +333,7 @@ location.reload();
 			oRouter.navTo("View3");
 		},
 		onNavBack: function() {
- window.history.back();
+			window.history.back();
 
 			// var oHistory = History.getInstance();
 			// var sPreviousHash = oHistory.getPreviousHash();
