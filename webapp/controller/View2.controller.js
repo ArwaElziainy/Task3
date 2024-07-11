@@ -10,6 +10,19 @@ sap.ui.define([
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("View2").attachMatched(this._onRouteMatched, this);
+			var that = this;
+			window.addEventListener("popstate", function() {
+				var displayBlock = document.getElementsByClassName("displayNone");
+				for (var i2 = 0; i2 < displayBlock.length; i2++) {
+					displayBlock[i2].style.display = "none";
+				}
+				var editIcon = document.getElementsByClassName("onEdit");
+				for (var i = 0; i < editIcon.length; i++) {
+					editIcon[i].style.display = "block";
+				}
+				that.getView().byId("save2").setVisible(false);
+				that.getView().byId("cancel").setVisible(false);
+			});
 
 		},
 		_onRouteMatched: function(oEvent) {
@@ -356,4 +369,5 @@ sap.ui.define([
 			// }
 		}
 	});
+
 });
