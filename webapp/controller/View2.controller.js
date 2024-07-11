@@ -145,7 +145,7 @@ sap.ui.define([
 				json: true
 			});
 			this.getView().setModel(oModel, "SCHeaderSet");
-			var refNo = this.getView().byId("RefNo").getText();
+			var refNo = this.getView().byId("genRef").getText();
 			console.log(refNo)
 			var oData = this.getView().getModel("SCHeaderSet");
 			oData.read("/SCHeaderSet(" + refNo + ")", {
@@ -333,6 +333,16 @@ sap.ui.define([
 			oRouter.navTo("View3");
 		},
 		onNavBack: function() {
+			var displayBlock = document.getElementsByClassName("displayNone");
+			for (var i2 = 0; i2 < displayBlock.length; i2++) {
+				displayBlock[i2].style.display = "none";
+			}
+			var editIcon = document.getElementsByClassName("onEdit");
+			for (var i = 0; i < editIcon.length; i++) {
+				editIcon[i].style.display = "block";
+			}
+			this.getView().byId("save2").setVisible(false);
+			this.getView().byId("cancel").setVisible(false);
 			window.history.back();
 
 			// var oHistory = History.getInstance();
