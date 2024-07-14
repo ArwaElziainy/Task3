@@ -318,7 +318,71 @@ sap.ui.define([
 						displayBlock[i2].style.display = "none";
 					}
 
-					location.reload();
+					console.log(oUpdatedData)
+
+					this.getView().byId("genRef").setText(oUpdatedData.ZdateSta);
+					this.getView().byId("genShift").setText(oUpdatedData.Zshift);
+					this.getView().byId("genDate").setText(oUpdatedData.ZdateGluFru);
+					this.getView().byId("genStatus").setText(oUpdatedData.ZStatusSta);
+					// General Information
+
+					this.getView().byId("shiftTex").setText(oUpdatedData.Zshift);
+					this.getView().byId("dateTex").setText(oUpdatedData.ZdateGluFru);
+					//تحويلات الجلوكوز
+					this.getView().byId("awl1Tex").setText(oUpdatedData.ZTank1Sta);
+					this.getView().byId("akher1Tex").setText(oUpdatedData.ZTank3Sta);
+					this.getView().byId("y1Tex").setText(oUpdatedData.ZTank5Sta);
+					this.getView().byId("awl2Tex").setText(oUpdatedData.ZTank2Sta);
+					this.getView().byId("akher2Tex").setText(oUpdatedData.ZTank4Sta);
+					this.getView().byId("y2Tex").setText(oUpdatedData.ZTank6Sta);
+					this.getView().byId("brTex").setText(oUpdatedData.ZTank7Sta);
+					this.getView().byId("totalTex").setText(oUpdatedData.ZFru1Sta);
+					//النشا الجاف
+					this.getView().byId("HTex").setText(oUpdatedData.ZDry1Sta);
+					this.getView().byId("ITex").setText(oUpdatedData.ZDry2Sta);
+					//النشا التام
+					this.getView().byId("KTex").setText(oUpdatedData.ZPack1Sta);
+					this.getView().byId("LTex").setText(oUpdatedData.ZPack2Sta);
+					this.getView().byId("MTex").setText(oUpdatedData.ZPack3Sta);
+					// فرق تغير تانكات حليب النشا
+					this.getView().byId("T1Tex").setText(oUpdatedData.ZTank18Sta);
+					this.getView().byId("KMTex").setText(oUpdatedData.ZBy1Sta);
+					this.getView().byId("T2Tex").setText(oUpdatedData.ZTank14Sta);
+					this.getView().byId("GMTex").setText(oUpdatedData.ZBy4Sta);
+					this.getView().byId("T3Tex").setText(oUpdatedData.ZTank15Sta);
+					this.getView().byId("JMTex").setText(oUpdatedData.ZBy7Sta);
+					this.getView().byId("T4Tex").setText(oUpdatedData.ZTank16Sta);
+					this.getView().byId("OilTex").setText(oUpdatedData.ZBy10Sta);
+					this.getView().byId("T5Tex").setText(oUpdatedData.ZTank17Sta);
+					this.getView().byId("WTex").setText(oUpdatedData.ZBy14Sta);
+					//Table
+					this.getView().byId("production1Tex").setText(oUpdatedData.ZQty1Sta);
+					this.getView().byId("oil1Tex").setText(oUpdatedData.ZOil1Sta);
+					this.getView().byId("production2Tex").setText(oUpdatedData.ZQty2Sta);
+					this.getView().byId("oil2Tex").setText(oUpdatedData.ZOil2Sta);
+					this.getView().byId("production3Tex").setText(oUpdatedData.ZQty3Sta);
+					this.getView().byId("oil3Tex").setText(oUpdatedData.ZOil3Sta);
+					this.getView().byId("production4Tex").setText(oUpdatedData.ZQty4Sta);
+					this.getView().byId("oil4Tex").setText(oUpdatedData.ZOil4Sta);
+					//الباقي
+					this.getView().byId("KKTex").setText(oUpdatedData.ZKkSta);
+					this.getView().byId("SSTex").setText(oUpdatedData.ZSsSta);
+					this.getView().byId("ProtinTex").setText(oUpdatedData.ZQtyproSta);
+					this.getView().byId("HumRTex").setText(oUpdatedData.ZHumSta);
+					// ---------------
+					this.getView().byId("firstTex").setText(oUpdatedData.ZWat1Sta);
+					this.getView().byId("lastTex").setText(oUpdatedData.ZWat2Sta);
+					this.getView().byId("WTex").setText(oUpdatedData.ZWat3Sta);
+					this.getView().byId("WHumTex").setText(oUpdatedData.ZWatHumSta);
+					this.getView().byId("PKTex").setText(oUpdatedData.ZBy1Sta);
+					this.getView().byId("PGTex").setText(oUpdatedData.ZBy4Sta);
+					this.getView().byId("GTTex").setText(oUpdatedData.ZBy7Sta);
+
+					var editIcon = document.getElementsByClassName("onEdit");
+					for (var i = 0; i < editIcon.length; i++) {
+						editIcon[i].style.display = "block";
+					}
+					// location.reload();
 
 				}.bind(this),
 				error: function(oError) {
