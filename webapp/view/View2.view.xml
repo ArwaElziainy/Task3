@@ -1,582 +1,582 @@
 <mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
 	xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="Task3.controller.View2" displayBlock="true">
 	<App>
-		<pages>
-			<Page title="{i18n>title}" showNavButton="true" navButtonPress=".onNavBack">
-				<HeaderContainer>
-					<VBox>
-						<FlexBox justifyContent="SpaceBetween" alignContent="SpaceBetween" alignItems="Center">
-							<HBox>
-								<FlexBox width="400px" justifyContent="SpaceBetween">
-									<VBox>
-										<HBox alignItems="Center">
-											<FlexBox>
-												<Label text=" Ref Number : "/>
-												<Text id="genRef"/>
-											</FlexBox>
-										</HBox>
-										<HBox alignItems="Center">
-											<FlexBox alignItems="Center">
-												<Label text=" Shift : "/>
-												<Text id="genShift"/>
-											</FlexBox>
-										</HBox>
-										<HBox alignItems="Center" alignContent="Center">
-											<FlexBox alignItems="Center">
-												<Label text="Date : "/>
-												<Text id="genDate"/>
-											</FlexBox>
-										</HBox>
-										<HBox alignItems="Center">
-											<FlexBox>
-												<Label text="Status : "/>
-												<Text id="genStatus"/>
-											</FlexBox>
-										</HBox>
-									</VBox>
-									<Button id="change" visible="true"   class="editIcon onEdit" icon="sap-icon://edit" tooltip="Edit" press=".onChange"/>
-								</FlexBox>
-							</HBox>
-							<Button id="create"  visible="true" class="editIcon onEdit" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>
-						</FlexBox>
-					</VBox>
-				</HeaderContainer>
-				<content>
-					<uxap:ObjectPageLayout>
-						<uxap:sections>
-							<uxap:ObjectPageSection id="section1" title="General Information">
-								<uxap:subSections>
-									<uxap:ObjectPageSubSection>
-										<uxap:blocks>
-											<l:Grid position="Center">
-												<l:content>
-													<FlexBox justifyContent="Center">
-														<Label class="margin_right" labelFor="shift" text="Shift:"/>
-														<ComboBox id="shift" class="displayNone">
-															<core:Item key="1" text="1"/>
-															<core:Item key="2" text="2"/>
-															<core:Item key="3" text="3"/>
-														</ComboBox>
-														<Text id="shiftTex" class="alignSelf onEdit" textAlign="Center"/>
-														<layoutData>
-															<l:GridData span="L6 M6 S12"/>
-														</layoutData>
-													</FlexBox>
-													<FlexBox justifyContent="Center">
-														<Label class="margin_right" labelFor="date" text="Date:"/>
-														<Input id="date" class="displayNone"/>
-														<Text id="dateTex" class="alignSelf onEdit" textAlign="Center"/>
-														<layoutData>
-															<l:GridData span="L6 M6 S12"/>
-														</layoutData>
-													</FlexBox>
-												</l:content>
-											</l:Grid>
-										</uxap:blocks>
-									</uxap:ObjectPageSubSection>
-								</uxap:subSections>
-							</uxap:ObjectPageSection>
-							<uxap:ObjectPageSection id="section2" title="تحويلات الجلوكوز">
-								<uxap:subSections>
-									<uxap:ObjectPageSubSection>
-										<uxap:blocks>
-											<VBox>
-												<FlexBox class="container" wrap="Wrap">
-													<l:Grid>
-														<l:content>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="awl1" text=": عداد أول الوردية 1"/>
-																<Input id="awl1" class="displayNone"/>
-																<Text id="awl1Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="awl2" text=": عداد أول الوردية 2"/>
-																<Input id="awl2" class="displayNone"/>
-																<Text id="awl2Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="y1" text=": بومية 1"/>
-																<Input id="y1" class="displayNone"/>
-																<Text id="y1Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="br" text=": نسبة البروتين"/>
-																<Input id="br" class="displayNone"/>
-																<Text id="brTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="akher1" text=": عداد آخر الوردية 1"/>
-																<Input id="akher1" class="displayNone"/>
-																<Text id="akher1Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="akher2" text=": عداد آخر الوردية 2"/>
-																<Input id="akher2" class="displayNone"/>
-																<Text id="akher2Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="y2" text=": بومية 2"/>
-																<Input id="y2" class="displayNone"/>
-																<Text id="y2Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox class="container" justifyContent="Center">
-																<Label class="margin_right" labelFor="total" text=": إجمالى التحويل للفركتوز"/>
-																<Input id="total" class="displayNone"/>
-																<Text id="totalTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L3 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-														</l:content>
-													</l:Grid>
+		<!--<HeaderContainer>-->
+		<!--	<VBox>-->
+		<!--		<FlexBox justifyContent="SpaceBetween" alignContent="SpaceBetween" alignItems="Center">-->
+		<!--			<HBox>-->
+		<!--				<FlexBox width="400px" justifyContent="SpaceBetween">-->
+		<!--					<VBox>-->
+		<!--						<HBox alignItems="Center">-->
+		<!--							<FlexBox>-->
+		<!--								<Label text=" Ref Number : "/>-->
+		<!--								<Text id="genRef"/>-->
+		<!--							</FlexBox>-->
+		<!--						</HBox>-->
+		<!--						<HBox alignItems="Center">-->
+		<!--							<FlexBox alignItems="Center">-->
+		<!--								<Label text=" Shift : "/>-->
+		<!--								<Text id="genShift"/>-->
+		<!--							</FlexBox>-->
+		<!--						</HBox>-->
+		<!--						<HBox alignItems="Center" alignContent="Center">-->
+		<!--							<FlexBox alignItems="Center">-->
+		<!--								<Label text="Date : "/>-->
+		<!--								<Text id="genDate"/>-->
+		<!--							</FlexBox>-->
+		<!--						</HBox>-->
+		<!--						<HBox alignItems="Center">-->
+		<!--							<FlexBox>-->
+		<!--								<Label text="Status : "/>-->
+		<!--								<Text id="genStatus"/>-->
+		<!--							</FlexBox>-->
+		<!--						</HBox>-->
+		<!--					</VBox>-->
+		<!--					<Button id="change" visible="true" class="editIcon onEdit" icon="sap-icon://edit" tooltip="Edit" press=".onChange"/>-->
+		<!--				</FlexBox>-->
+		<!--			</HBox>-->
+		<!--			<Button id="create" visible="true" class="editIcon onEdit" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>-->
+		<!--		</FlexBox>-->
+		<!--	</VBox>-->
+		<!--</HeaderContainer>-->
+		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent="true"
+			showHeaderContent="true">
+			<uxap:headerTitle>
+				<uxap:ObjectPageHeader   id="ObjectPageLayoutHeaderTitle"  isObjectTitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">
+				
+					 <Button  text="Edit" />
+					 <Button  text="Delete" />
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle>
+			<uxap:sections>
+				<uxap:ObjectPageSection id="section1" title="General Information">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<l:Grid position="Center">
+									<l:content>
+										<FlexBox justifyContent="Center">
+											<Label class="margin_right" labelFor="shift" text="Shift:"/>
+											<ComboBox id="shift" class="displayNone">
+												<core:Item key="1" text="1"/>
+												<core:Item key="2" text="2"/>
+												<core:Item key="3" text="3"/>
+											</ComboBox>
+											<Text id="shiftTex" class="alignSelf onEdit" textAlign="Center"/>
+											<layoutData>
+												<l:GridData span="L6 M6 S12"/>
+											</layoutData>
+										</FlexBox>
+										<FlexBox justifyContent="Center">
+											<Label class="margin_right" labelFor="date" text="Date:"/>
+											<Input id="date" class="displayNone"/>
+											<Text id="dateTex" class="alignSelf onEdit" textAlign="Center"/>
+											<layoutData>
+												<l:GridData span="L6 M6 S12"/>
+											</layoutData>
+										</FlexBox>
+									</l:content>
+								</l:Grid>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section2" title="تحويلات الجلوكوز">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<FlexBox class="container" wrap="Wrap">
+										<l:Grid>
+											<l:content>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="awl1" text=": عداد أول الوردية 1"/>
+													<Input id="awl1" class="displayNone"/>
+													<Text id="awl1Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
 												</FlexBox>
-											</VBox>
-										</uxap:blocks>
-									</uxap:ObjectPageSubSection>
-								</uxap:subSections>
-							</uxap:ObjectPageSection>
-							<uxap:ObjectPageSection id="section3" title="النشــا الجاف">
-								<uxap:subSections>
-									<uxap:ObjectPageSubSection>
-										<uxap:blocks>
-											<l:Grid>
-												<l:content>
-													<FlexBox justifyContent="SpaceAround">
-														<FlexBox justifyContent="Center">
-															<Label class="margin_right" labelFor="H" text=": قياس تانك النشا الجاف أول الوردية (H)"/>
-															<Input id="H" class="displayNone"/>
-															<Text id="HTex" class="alignSelf onEdit" textAlign="Center"/>
-															<layoutData>
-																<l:GridData span="L6 M6 S12"/>
-															</layoutData>
-														</FlexBox>
-														<FlexBox justifyContent="Center">
-															<Label class="margin_right" labelFor="I" text=": قياس تانك النشا الجاف آخر الوردية (I)"/>
-															<Input id="I" class="displayNone"/>
-															<Text id="ITex" class="alignSelf onEdit" textAlign="Center"/>
-															<layoutData>
-																<l:GridData span="L6 M6 S12"/>
-															</layoutData>
-														</FlexBox>
-														<layoutData>
-															<l:GridData span="L12 M12 S12"/>
-														</layoutData>
-													</FlexBox>
-												</l:content>
-											</l:Grid>
-										</uxap:blocks>
-									</uxap:ObjectPageSubSection>
-								</uxap:subSections>
-							</uxap:ObjectPageSection>
-							<uxap:ObjectPageSection id="section4" title="النشا التام">
-								<uxap:subSections>
-									<uxap:ObjectPageSubSection>
-										<uxap:blocks>
-											<l:Grid>
-												<l:content>
-													<FlexBox justifyContent="SpaceAround" wrap="Wrap">
-														<FlexBox justifyContent="Center">
-															<Label class="margin_right" labelFor="K" text=": النشا المعبأ (K)"/>
-															<Input id="K" class="displayNone"/>
-															<Text id="KTex" class="alignSelf onEdit" textAlign="Center"/>
-															<layoutData>
-																<l:GridData span="L4 M4 S12"/>
-															</layoutData>
-														</FlexBox>
-														<FlexBox justifyContent="Center">
-															<Label class="margin_right" labelFor="L" text=": إرتجاع الإنتاج (L)"/>
-															<Input id="L" class="displayNone"/>
-															<Text id="LTex" class="alignSelf onEdit" textAlign="Center"/>
-															<layoutData>
-																<l:GridData span="L4 M4 S12"/>
-															</layoutData>
-														</FlexBox>
-														<FlexBox justifyContent="Center">
-															<Label class="margin_right" labelFor="M" text=": فروق أوزان المبيعات (M)"/>
-															<Input id="M" class="displayNone"/>
-															<Text id="MTex" class="alignSelf onEdit" textAlign="Center"/>
-															<layoutData>
-																<l:GridData span="L4 M4 S12"/>
-															</layoutData>
-														</FlexBox>
-														<layoutData>
-															<l:GridData span="L12 M12 S12"/>
-														</layoutData>
-													</FlexBox>
-												</l:content>
-											</l:Grid>
-										</uxap:blocks>
-									</uxap:ObjectPageSubSection>
-								</uxap:subSections>
-							</uxap:ObjectPageSection>
-							<uxap:ObjectPageSection id="section5" title="فرق تغير تانكات حليب النشا">
-								<uxap:subSections>
-									<uxap:ObjectPageSubSection>
-										<uxap:blocks>
-											<VBox>
-												<FlexBox wrap="Wrap">
-													<l:Grid>
-														<l:content>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="T1" text=": قياس آخر الوردية تانك 1"/>
-																<Input id="T1" class="displayNone"/>
-																<Text id="T1Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="T2" text=": قياس آخر الوردية تانك 2"/>
-																<Input id="T2" class="displayNone"/>
-																<Text id="T2Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="T3" text=": قياس آخر الوردية تانك 3"/>
-																<Input id="T3" class="displayNone"/>
-																<Text id="T3Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="T4" text=": قياس آخر الوردية تانك 4"/>
-																<Input id="T4" class="displayNone"/>
-																<Text id="T4Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="T5" text=": قياس آخر الوردية تانك 5"/>
-																<Input id="T5" class="displayNone"/>
-																<Text id="T5Tex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="KM" text=": الكسب المعبأ"/>
-																<Input id="KM" class="displayNone"/>
-																<Text id="KMTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="GM" text=": جلوتوفيد معبأ"/>
-																<Input id="GM" class="displayNone"/>
-																<Text id="GMTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="JM" text=": جلوتين معبأ"/>
-																<Input id="JM" class="displayNone"/>
-																<Text id="JMTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="Oil" text=": الزيت"/>
-																<Input id="Oil" class="displayNone"/>
-																<Text id="OilTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="W" text=": مياة النقع"/>
-																<Input id="W" class="displayNone"/>
-																<Text id="WTex" class="alignSelf onEdit" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-														</l:content>
-													</l:Grid>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="awl2" text=": عداد أول الوردية 2"/>
+													<Input id="awl2" class="displayNone"/>
+													<Text id="awl2Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
 												</FlexBox>
-												<Table class="table" id="table" width="80%" backgroundDesign="Transparent">
-													<columns>
-														<Column id="Kper" hAlign="Center">
-															<Text class="title" text="نسبة الكسب= 100%" id="KP"/>
-														</Column>
-														<Column id="Pper" hAlign="Center">
-															<Text class="title" text="كمية المنصرف على الانتاج" id="PP"/>
-														</Column>
-														<Column id="Oper" hAlign="Center">
-															<Text class="title" text="نسبة الزيت" id="OP"/>
-														</Column>
-													</columns>
-													<items>
-														<ColumnListItem vAlign="Middle">
-															<cells>
-																<Text text="Material Code1"/>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="production1Tex"/>
-																	<Input id="production1" class="displayNone"/>
-																</FlexBox>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="oil1Tex"/>
-																	<Input id="oil1" class="displayNone"/>
-																</FlexBox>
-															</cells>
-														</ColumnListItem>
-														<ColumnListItem vAlign="Middle">
-															<cells>
-																<Text text="Material Code2"/>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="production2Tex"/>
-																	<Input id="production2" class="displayNone"/>
-																</FlexBox>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="oil2Tex"/>
-																	<Input id="oil2" class="displayNone"/>
-																</FlexBox>
-															</cells>
-														</ColumnListItem>
-														<ColumnListItem vAlign="Middle">
-															<cells>
-																<Text text="Material Code3"/>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="production3Tex"/>
-																	<Input id="production3" class="displayNone"/>
-																</FlexBox>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="oil3Tex"/>
-																	<Input id="oil3" class="displayNone"/>
-																</FlexBox>
-															</cells>
-														</ColumnListItem>
-														<ColumnListItem vAlign="Middle">
-															<cells>
-																<Text text="Material Code4"/>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="production4Tex"/>
-																	<Input id="production4" class="displayNone"/>
-																</FlexBox>
-																<FlexBox alignItems="Center" justifyContent="Center">
-																	<Text class="onEdit" id="oil4Tex"/>
-																	<Input id="oil4" class="displayNone"/>
-																</FlexBox>
-															</cells>
-														</ColumnListItem>
-													</items>
-												</Table>
-												<FlexBox wrap="Wrap" justifyContent="Center" width="100%" alignContent="Center" alignItems="Center">
-													<l:Grid>
-														<l:content>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="KK" text=": الكسر المضاف على الجلوتوفيد KK"/>
-																<Input id="KK" class="displayNone"/>
-																<Text class="onEdit" id="KKTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="SS" text=": السرس المضاف على الكسب SS"/>
-																<Input id="SS" class="displayNone"/>
-																<Text class="onEdit" id="SSTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="Protin" text=": كمية البروتيلان"/>
-																<Input id="Protin" class="displayNone"/>
-																<Text class="onEdit" id="ProtinTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="Protin" text=": نسبة الرطوبة"/>
-																<Input id="HumR" class="displayNone"/>
-																<Text class="onEdit" id="HumRTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="first" text=": عداد أول (مياه النقع)"/>
-																<Input id="first" class="displayNone"/>
-																<Text class="onEdit" id="firstTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="last" text=": عداد أخر (مياه النقع)"/>
-																<Input id="last" class="displayNone"/>
-																<Text class="onEdit" id="lastTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="WY" text=": بومية (مياة النقع)"/>
-																<Input id="WY" class="displayNone"/>
-																<Text class="onEdit" id="WYTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="WHum" text=": نسبة رطوبة مياة النقع"/>
-																<Input id="WHum" class="displayNone"/>
-																<Text class="onEdit" id="WHumTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="PK" text=": الكسب المعبأ PK"/>
-																<Input id="PK" class="displayNone"/>
-																<Text class="onEdit" id="PKTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="PG" text=": جلوتوفيد معبأ PG"/>
-																<Input id="PG" class="displayNone"/>
-																<Text class="onEdit" id="PGTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-															<FlexBox justifyContent="Center">
-																<Label class="margin_right" labelFor="GT" text=": جلوتين معبأ GT"/>
-																<Input id="GT" class="displayNone"/>
-																<Text class="onEdit" id="GTTex" textAlign="Center"/>
-																<layoutData>
-																	<l:GridData span="L4 M6 S12"/>
-																</layoutData>
-															</FlexBox>
-														</l:content>
-													</l:Grid>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="y1" text=": بومية 1"/>
+													<Input id="y1" class="displayNone"/>
+													<Text id="y1Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
 												</FlexBox>
-											</VBox>
-										</uxap:blocks>
-									</uxap:ObjectPageSubSection>
-								</uxap:subSections>
-							</uxap:ObjectPageSection>
-							<uxap:ObjectPageSection id="section6" title="Outputs">
-								<uxap:subSections>
-									<uxap:ObjectPageSubSection>
-										<uxap:blocks>
-											<VBox>
-									
-												<f:SimpleForm editable="false" layout="ColumnLayout" columnsM="2" columnsL="3">
-													<f:content>
-														<Label text="عدد أمتار عداد 1"/>
-														<Text id="meter1"/>
-														<Label text="عدد أمتار عداد 2"/>
-														<Text id="meter2"/>
-														<Label text="كمية تحويل بالطن جاف عداد 1"/>
-														<Text id="tonD1"/>
-														<Label text="كمية تحويل بالطن جاف عداد 2"/>
-														<Text id="tonD2"/>
-														<Label text="كمية تحويل بالطن رطب عداد 1 "/>
-														<Text id="tonR1"/>
-														<Label text="كمية تحويل بالطن رطب عداد 2"/>
-														<Text id="tonR2"/>
-														<Label text="إجمالى التحويل (G)"/>
-														<Text id="G"/>
-														<Label text="إجمالى التحويل للجلوكوز(G1)"/>
-														<Text id="G1"/>
-														<Label text="اجمالي تانك النشا J"/>
-														<Text id="J"/>
-														<Label text="إنتاج النشا الجاف(N)"/>
-														<Text id="N"/>
-														<Label text="فرق التغير (R)"/>
-														<Text id="R"/>
-														<Label text="نسبة الكسب"/>
-														<Text id="KR"/>
-														<Label text="كمية زيت من جنين الندى NZ"/>
-														<Text id="NZ"/>
-														<Label text="كمية الكسب NK"/>
-														<Text id="NK"/>
-														<Label text="كمية النشا فى دقيق ذرة الندى NDS"/>
-														<Text id="NDS"/>
-														<Label text="كمية الجلوتين فى دقيق ذرة الندى NDG"/>
-														<Text id="NDG"/>
-														<Label text="البروتيلان الجاف BRG"/>
-														<Text id="BRG"/>
-														<Label text="البروتيلان المضاف على الجلوتوفيد BR"/>
-														<Text id="BR"/>
-														<Label text="بومية مياة النقع بعد المعالجة"/>
-														<Text id="YW"/>
-														<Label text="عدد امتار مياة النقع المضافة على الجلوتوفيد"/>
-														<Text id="mWatG"/>
-														<Label text="كمية مياة النقع المضافة على الجلوتوفيد الجاف"/>
-														<Text id="watDG"/>
-														<Label text="كمية مياة النقع المضافة على الجلوتوفيد الرطب WG"/>
-														<Text id="WG"/>
-														<Label text="الكسب المعبأ PK"/>
-														<Text id="OPK"/>
-														<Label text="جلوتوفيد معبأPG"/>
-														<Text id="OPG"/>
-														<Label text="جلوتين معبأ GT"/>
-														<Text id="OGT"/>
-														<Label text="الزيت PZ"/>
-														<Text id="PZ"/>
-														<Label text="مياة النقع المباعة فقط"/>
-														<Text id="SW"/>
-														<Label text="إجمالى إنتاج حليب النشا"/>
-														<Text id="TM"/>
-														<Label text="كمية المادة الصلبة فى مياة النقع المباعة WW"/>
-														<Text id="WW"/>
-														<Label text="كمية المادة الصلبة عند 12% رطوبة WW2"/>
-														<Text id="WW2"/>
-											
-													</f:content>
-												</f:SimpleForm>
-													<f:SimpleForm layout="ColumnLayout" columnsM="2" columnsL="2">
-													<f:content>
-														<Label text="Changed by"/>
-														<Text id="by"/>
-														<Label text="Changed on" />
-														<Text id="on" />
-													</f:content>
-												</f:SimpleForm>
-											</VBox>
-										</uxap:blocks>
-									</uxap:ObjectPageSubSection>
-								</uxap:subSections>
-							</uxap:ObjectPageSection>
-						</uxap:sections>
-					</uxap:ObjectPageLayout>
-					<Button id="save2" class="save" text="Save" press=".onEdit" visible="false"/>
-					<Button id="cancel" class="save" text="cancel" press=".onCancel" visible="false"/>
-				</content>
-			</Page>
-		</pages>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="br" text=": نسبة البروتين"/>
+													<Input id="br" class="displayNone"/>
+													<Text id="brTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="akher1" text=": عداد آخر الوردية 1"/>
+													<Input id="akher1" class="displayNone"/>
+													<Text id="akher1Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="akher2" text=": عداد آخر الوردية 2"/>
+													<Input id="akher2" class="displayNone"/>
+													<Text id="akher2Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="y2" text=": بومية 2"/>
+													<Input id="y2" class="displayNone"/>
+													<Text id="y2Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox class="container" justifyContent="Center">
+													<Label class="margin_right" labelFor="total" text=": إجمالى التحويل للفركتوز"/>
+													<Input id="total" class="displayNone"/>
+													<Text id="totalTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L3 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+											</l:content>
+										</l:Grid>
+									</FlexBox>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section3" title="النشــا الجاف">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<l:Grid>
+									<l:content>
+										<FlexBox justifyContent="SpaceAround">
+											<FlexBox justifyContent="Center">
+												<Label class="margin_right" labelFor="H" text=": قياس تانك النشا الجاف أول الوردية (H)"/>
+												<Input id="H" class="displayNone"/>
+												<Text id="HTex" class="alignSelf onEdit" textAlign="Center"/>
+												<layoutData>
+													<l:GridData span="L6 M6 S12"/>
+												</layoutData>
+											</FlexBox>
+											<FlexBox justifyContent="Center">
+												<Label class="margin_right" labelFor="I" text=": قياس تانك النشا الجاف آخر الوردية (I)"/>
+												<Input id="I" class="displayNone"/>
+												<Text id="ITex" class="alignSelf onEdit" textAlign="Center"/>
+												<layoutData>
+													<l:GridData span="L6 M6 S12"/>
+												</layoutData>
+											</FlexBox>
+											<layoutData>
+												<l:GridData span="L12 M12 S12"/>
+											</layoutData>
+										</FlexBox>
+									</l:content>
+								</l:Grid>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section4" title="النشا التام">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<l:Grid>
+									<l:content>
+										<FlexBox justifyContent="SpaceAround" wrap="Wrap">
+											<FlexBox justifyContent="Center">
+												<Label class="margin_right" labelFor="K" text=": النشا المعبأ (K)"/>
+												<Input id="K" class="displayNone"/>
+												<Text id="KTex" class="alignSelf onEdit" textAlign="Center"/>
+												<layoutData>
+													<l:GridData span="L4 M4 S12"/>
+												</layoutData>
+											</FlexBox>
+											<FlexBox justifyContent="Center">
+												<Label class="margin_right" labelFor="L" text=": إرتجاع الإنتاج (L)"/>
+												<Input id="L" class="displayNone"/>
+												<Text id="LTex" class="alignSelf onEdit" textAlign="Center"/>
+												<layoutData>
+													<l:GridData span="L4 M4 S12"/>
+												</layoutData>
+											</FlexBox>
+											<FlexBox justifyContent="Center">
+												<Label class="margin_right" labelFor="M" text=": فروق أوزان المبيعات (M)"/>
+												<Input id="M" class="displayNone"/>
+												<Text id="MTex" class="alignSelf onEdit" textAlign="Center"/>
+												<layoutData>
+													<l:GridData span="L4 M4 S12"/>
+												</layoutData>
+											</FlexBox>
+											<layoutData>
+												<l:GridData span="L12 M12 S12"/>
+											</layoutData>
+										</FlexBox>
+									</l:content>
+								</l:Grid>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section5" title="فرق تغير تانكات حليب النشا">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<FlexBox wrap="Wrap">
+										<l:Grid>
+											<l:content>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="T1" text=": قياس آخر الوردية تانك 1"/>
+													<Input id="T1" class="displayNone"/>
+													<Text id="T1Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="T2" text=": قياس آخر الوردية تانك 2"/>
+													<Input id="T2" class="displayNone"/>
+													<Text id="T2Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="T3" text=": قياس آخر الوردية تانك 3"/>
+													<Input id="T3" class="displayNone"/>
+													<Text id="T3Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="T4" text=": قياس آخر الوردية تانك 4"/>
+													<Input id="T4" class="displayNone"/>
+													<Text id="T4Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="T5" text=": قياس آخر الوردية تانك 5"/>
+													<Input id="T5" class="displayNone"/>
+													<Text id="T5Tex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="KM" text=": الكسب المعبأ"/>
+													<Input id="KM" class="displayNone"/>
+													<Text id="KMTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="GM" text=": جلوتوفيد معبأ"/>
+													<Input id="GM" class="displayNone"/>
+													<Text id="GMTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="JM" text=": جلوتين معبأ"/>
+													<Input id="JM" class="displayNone"/>
+													<Text id="JMTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="Oil" text=": الزيت"/>
+													<Input id="Oil" class="displayNone"/>
+													<Text id="OilTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="W" text=": مياة النقع"/>
+													<Input id="W" class="displayNone"/>
+													<Text id="WTex" class="alignSelf onEdit" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+											</l:content>
+										</l:Grid>
+									</FlexBox>
+									<Table class="table" id="table" width="80%" backgroundDesign="Transparent">
+										<columns>
+											<Column id="Kper" hAlign="Center">
+												<Text class="title" text="نسبة الكسب= 100%" id="KP"/>
+											</Column>
+											<Column id="Pper" hAlign="Center">
+												<Text class="title" text="كمية المنصرف على الانتاج" id="PP"/>
+											</Column>
+											<Column id="Oper" hAlign="Center">
+												<Text class="title" text="نسبة الزيت" id="OP"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<Text text="Material Code1"/>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="production1Tex"/>
+														<Input id="production1" class="displayNone"/>
+													</FlexBox>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="oil1Tex"/>
+														<Input id="oil1" class="displayNone"/>
+													</FlexBox>
+												</cells>
+											</ColumnListItem>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<Text text="Material Code2"/>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="production2Tex"/>
+														<Input id="production2" class="displayNone"/>
+													</FlexBox>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="oil2Tex"/>
+														<Input id="oil2" class="displayNone"/>
+													</FlexBox>
+												</cells>
+											</ColumnListItem>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<Text text="Material Code3"/>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="production3Tex"/>
+														<Input id="production3" class="displayNone"/>
+													</FlexBox>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="oil3Tex"/>
+														<Input id="oil3" class="displayNone"/>
+													</FlexBox>
+												</cells>
+											</ColumnListItem>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<Text text="Material Code4"/>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="production4Tex"/>
+														<Input id="production4" class="displayNone"/>
+													</FlexBox>
+													<FlexBox alignItems="Center" justifyContent="Center">
+														<Text class="onEdit" id="oil4Tex"/>
+														<Input id="oil4" class="displayNone"/>
+													</FlexBox>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+									<FlexBox wrap="Wrap" justifyContent="Center" width="100%" alignContent="Center" alignItems="Center">
+										<l:Grid>
+											<l:content>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="KK" text=": الكسر المضاف على الجلوتوفيد KK"/>
+													<Input id="KK" class="displayNone"/>
+													<Text class="onEdit" id="KKTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="SS" text=": السرس المضاف على الكسب SS"/>
+													<Input id="SS" class="displayNone"/>
+													<Text class="onEdit" id="SSTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="Protin" text=": كمية البروتيلان"/>
+													<Input id="Protin" class="displayNone"/>
+													<Text class="onEdit" id="ProtinTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="Protin" text=": نسبة الرطوبة"/>
+													<Input id="HumR" class="displayNone"/>
+													<Text class="onEdit" id="HumRTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="first" text=": عداد أول (مياه النقع)"/>
+													<Input id="first" class="displayNone"/>
+													<Text class="onEdit" id="firstTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="last" text=": عداد أخر (مياه النقع)"/>
+													<Input id="last" class="displayNone"/>
+													<Text class="onEdit" id="lastTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="WY" text=": بومية (مياة النقع)"/>
+													<Input id="WY" class="displayNone"/>
+													<Text class="onEdit" id="WYTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="WHum" text=": نسبة رطوبة مياة النقع"/>
+													<Input id="WHum" class="displayNone"/>
+													<Text class="onEdit" id="WHumTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="PK" text=": الكسب المعبأ PK"/>
+													<Input id="PK" class="displayNone"/>
+													<Text class="onEdit" id="PKTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="PG" text=": جلوتوفيد معبأ PG"/>
+													<Input id="PG" class="displayNone"/>
+													<Text class="onEdit" id="PGTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+												<FlexBox justifyContent="Center">
+													<Label class="margin_right" labelFor="GT" text=": جلوتين معبأ GT"/>
+													<Input id="GT" class="displayNone"/>
+													<Text class="onEdit" id="GTTex" textAlign="Center"/>
+													<layoutData>
+														<l:GridData span="L4 M6 S12"/>
+													</layoutData>
+												</FlexBox>
+											</l:content>
+										</l:Grid>
+									</FlexBox>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section6" title="Outputs">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<f:SimpleForm editable="false" layout="ColumnLayout" columnsM="2" columnsL="3">
+										<f:content>
+											<Label text="عدد أمتار عداد 1"/>
+											<Text id="meter1"/>
+											<Label text="عدد أمتار عداد 2"/>
+											<Text id="meter2"/>
+											<Label text="كمية تحويل بالطن جاف عداد 1"/>
+											<Text id="tonD1"/>
+											<Label text="كمية تحويل بالطن جاف عداد 2"/>
+											<Text id="tonD2"/>
+											<Label text="كمية تحويل بالطن رطب عداد 1 "/>
+											<Text id="tonR1"/>
+											<Label text="كمية تحويل بالطن رطب عداد 2"/>
+											<Text id="tonR2"/>
+											<Label text="إجمالى التحويل (G)"/>
+											<Text id="G"/>
+											<Label text="إجمالى التحويل للجلوكوز(G1)"/>
+											<Text id="G1"/>
+											<Label text="اجمالي تانك النشا J"/>
+											<Text id="J"/>
+											<Label text="إنتاج النشا الجاف(N)"/>
+											<Text id="N"/>
+											<Label text="فرق التغير (R)"/>
+											<Text id="R"/>
+											<Label text="نسبة الكسب"/>
+											<Text id="KR"/>
+											<Label text="كمية زيت من جنين الندى NZ"/>
+											<Text id="NZ"/>
+											<Label text="كمية الكسب NK"/>
+											<Text id="NK"/>
+											<Label text="كمية النشا فى دقيق ذرة الندى NDS"/>
+											<Text id="NDS"/>
+											<Label text="كمية الجلوتين فى دقيق ذرة الندى NDG"/>
+											<Text id="NDG"/>
+											<Label text="البروتيلان الجاف BRG"/>
+											<Text id="BRG"/>
+											<Label text="البروتيلان المضاف على الجلوتوفيد BR"/>
+											<Text id="BR"/>
+											<Label text="بومية مياة النقع بعد المعالجة"/>
+											<Text id="YW"/>
+											<Label text="عدد امتار مياة النقع المضافة على الجلوتوفيد"/>
+											<Text id="mWatG"/>
+											<Label text="كمية مياة النقع المضافة على الجلوتوفيد الجاف"/>
+											<Text id="watDG"/>
+											<Label text="كمية مياة النقع المضافة على الجلوتوفيد الرطب WG"/>
+											<Text id="WG"/>
+											<Label text="الكسب المعبأ PK"/>
+											<Text id="OPK"/>
+											<Label text="جلوتوفيد معبأPG"/>
+											<Text id="OPG"/>
+											<Label text="جلوتين معبأ GT"/>
+											<Text id="OGT"/>
+											<Label text="الزيت PZ"/>
+											<Text id="PZ"/>
+											<Label text="مياة النقع المباعة فقط"/>
+											<Text id="SW"/>
+											<Label text="إجمالى إنتاج حليب النشا"/>
+											<Text id="TM"/>
+											<Label text="كمية المادة الصلبة فى مياة النقع المباعة WW"/>
+											<Text id="WW"/>
+											<Label text="كمية المادة الصلبة عند 12% رطوبة WW2"/>
+											<Text id="WW2"/>
+										</f:content>
+									</f:SimpleForm>
+									<f:SimpleForm layout="ColumnLayout" columnsM="2" columnsL="2">
+										<f:content>
+											<Label text="Changed by"/>
+											<Text id="by"/>
+											<Label text="Changed on"/>
+											<Text id="on"/>
+										</f:content>
+									</f:SimpleForm>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+			</uxap:sections>
+		</uxap:ObjectPageLayout>
+		<!--<Button id="save2" class="save" text="Save" press=".onEdit" visible="false"/>-->
+		<!--<Button id="cancel" class="save" text="cancel" press=".onCancel" visible="false"/>-->
 	</App>
 </mvc:View>

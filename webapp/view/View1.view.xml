@@ -1,53 +1,101 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="Task3.controller.View1"  displayBlock="true">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="Task3.controller.View1" displayBlock="true">
 	<App>
 		<pages>
-			<Page title="{i18n>title}">
+			<Page>
+
 				<content width="100%">
-					
-							<Toolbar height="auto">
-							
-										<FlexBox width="100%" alignContent="SpaceBetween" justifyContent="SpaceAround" alignItems="End" wrap="Wrap">
-											<SearchField id="refNo" placeholder="Refrence Number" tooltip="{i18n>worklistSearchTooltip}" liveChange=".onRefNo" width="250px"/>
-											<SearchField id="shift"  placeholder="Shift" tooltip="{i18n>worklistSearchTooltip}"  width="250px"/>
-											
-											<Button class="go" text="Go" width="250px" press=".onGo"/>
-											<Button class="editIcon" icon="sap-icon://create-form" tooltip="Create" press=".onCreate"/>
-										
-										</FlexBox>
-									
-							
-							</Toolbar>
-							<Table class="table" width="96%" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid" >
-						
-					
-						<columns>
-							<Column id="orderIdCol" hAlign="Center">
-								<Text text="Reference Number" id="OrderID"/>
-							</Column>
-							<Column id="customerIdCol" hAlign="Center">
-								<Text text="Status" id="CustomerID"/>
-							</Column>
-							<Column id="orderDateCol" hAlign="Center">
-								<Text text="Date" id="OrderDate"/>
-							</Column>
-							<Column id="shipViaCol" hAlign="Center">
-								<Text text="shift" id="Zshift"/>
-							</Column>
-						</columns>
-						<items>
-							<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
-								<cells>
-									<ObjectIdentifier id="refNoText" title="{SCHeaderSet>ZdateSta}"/>
-									<Text id="statusText" text="{SCHeaderSet>ZStatusSta}"/>
-									<Text id="dateText" text="{SCHeaderSet>ZdateGluFru}"/>
-									<Text id="shiftText" text="{SCHeaderSet>Zshift}"/>
-								</cells>
-							</ColumnListItem>
-						</items>
-					<customData>
-					    <sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
-					</customData>
-					</Table>
+					<!--<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="YourEntitySet" persistencyKey="SmartFilter_Example" enableBasicSearch="true">-->
+					<!--	<smartFilterBar:controlConfiguration>-->
+					<!--		<smartFilterBar:ControlConfiguration>-->
+					<!--			<smartFilterBar:defaultFilterValues>-->
+					<!--				<smartFilterBar:SelectOption ></smartFilterBar:SelectOption>-->
+					<!--			</smartFilterBar:defaultFilterValues>-->
+					<!--		</smartFilterBar:ControlConfiguration>-->
+					<!--		<smartFilterBar:ControlConfiguration>-->
+					<!--			<smartFilterBar:defaultFilterValues>-->
+					<!--				<smartFilterBar:SelectOption ></smartFilterBar:SelectOption>-->
+					<!--			</smartFilterBar:defaultFilterValues>-->
+					<!--		</smartFilterBar:ControlConfiguration>-->
+					<!--	</smartFilterBar:controlConfiguration>-->
+					<!--	<smartFilterBar:layoutData>-->
+					<!--		<FlexItemData shrinkFactor="0"  />-->
+					<!--	</smartFilterBar:layoutData>-->
+					<!--</smartFilterBar:SmartFilterBar>-->
+					<Toolbar height="auto">
+						<FlexBox width="100%" alignContent="Center" justifyContent="SpaceAround" alignItems="Center" wrap="Wrap">
+							<SearchField id="refNo" placeholder="Refrence Number" tooltip="{i18n>worklistSearchTooltip}" liveChange=".onRefNo" width="250px"/>
+							<SearchField id="shift" placeholder="Shift" tooltip="{i18n>worklistSearchTooltip}" width="250px"/>
+							<Button class="go" text="Go" width="250px" press=".onGo"/>
+						</FlexBox>
+					</Toolbar>
+					<!--		<Table class="table" width="90%" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }"-->
+					<!--	noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">-->
+					<!--	<columns>-->
+					<!--		<Column id="orderIdCol" hAlign="Center">-->
+					<!--			<Text text="Reference Number" id="OrderID"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="customerIdCol" hAlign="Center">-->
+					<!--			<Text text="Status" id="CustomerID"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="orderDateCol" hAlign="Center">-->
+					<!--			<Text text="Date" id="OrderDate"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="shipViaCol" hAlign="Center">-->
+					<!--			<Text text="shift" id="Zshift"/>-->
+					<!--		</Column>-->
+					<!--	</columns>-->
+					<!--	<items>-->
+					<!--		<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">-->
+					<!--			<cells>-->
+					<!--				<ObjectIdentifier id="refNoText" title="{SCHeaderSet>ZdateSta}"/>-->
+					<!--				<Text id="statusText" text="{SCHeaderSet>ZStatusSta}"/>-->
+					<!--				<Text id="dateText" text="{SCHeaderSet>ZdateGluFru}"/>-->
+					<!--				<Text id="shiftText" text="{SCHeaderSet>Zshift}"/>-->
+					<!--			</cells>-->
+					<!--		</ColumnListItem>-->
+					<!--	</items>-->
+					<!--	<customData>-->
+					<!--		<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>-->
+					<!--	</customData>-->
+					<!--</Table>-->
+					<smartTable:SmartTable id="LineItemsSmartTable" entitySet="LineItemsSet" smartFilterId="smartFilterBar" tableType="Table" useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true" app:useSmartToggle="true">
+						<Toolbar width="90%">
+							<Button class="editIcon " text="Create" tooltip="Create" press=".onCreate"/>
+							<Button class="editIcon" text="Delete" tooltip="Delete" enabled="false"/>
+						</Toolbar>
+						<Table class="table" width="90%" id="table" items="{ path: 'SCHeaderSet>/SCHeaderSet', sorter: { path: 'ZdateSta', descending: false } }" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+							<columns>
+								<Column id="orderIdCol" hAlign="Center">
+									<Text text="Reference Number" id="OrderID"/>
+								</Column>
+								<Column id="customerIdCol" hAlign="Center">
+									<Text text="Status" id="CustomerID"/>
+								</Column>
+								<Column id="orderDateCol" hAlign="Center">
+									<Text text="Date" id="OrderDate"/>
+								</Column>
+								<Column id="shipViaCol" hAlign="Center">
+									<Text text="shift" id="Zshift"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
+									<cells>
+										<ObjectIdentifier id="refNoText" title="{SCHeaderSet>ZdateSta}"/>
+										<Text id="statusText" text="{SCHeaderSet>ZStatusSta}"/>
+										<Text id="dateText" text="{SCHeaderSet>ZdateGluFru}"/>
+										<Text id="shiftText" text="{SCHeaderSet>Zshift}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<customData>
+								<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+							</customData>
+						</Table>
+						<smartTable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smartTable:layoutData>
+					</smartTable:SmartTable>
 				</content>
 			</Page>
 		</pages>

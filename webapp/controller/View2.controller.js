@@ -41,11 +41,12 @@ sap.ui.define([
 
 			oData.read("/SCHeaderSet(" + refNo + ")", {
 				success: function(oData2) {
+					 this.getView().byId("ObjectPageLayoutHeaderTitle").setObjectTitle(oData2.ZdateSta);
 
-					this.getView().byId("genRef").setText(oData2.ZdateSta);
-					this.getView().byId("genShift").setText(oData2.Zshift);
-					this.getView().byId("genDate").setText(oData2.ZdateGluFru);
-					this.getView().byId("genStatus").setText(oData2.ZStatusSta);
+					// this.getView().byId("genRef").setText(oData2.ZdateSta);
+					// this.getView().byId("genShift").setText(oData2.Zshift);
+					// this.getView().byId("genDate").setText(oData2.ZdateGluFru);
+					// this.getView().byId("genStatus").setText(oData2.ZStatusSta);
 					// General Information
 
 					this.getView().byId("shiftTex").setText(oData2.Zshift);
@@ -408,29 +409,6 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
 			oRouter.navTo("View3");
-		},
-		onNavBack: function() {
-			var displayBlock = document.getElementsByClassName("displayNone");
-			for (var i2 = 0; i2 < displayBlock.length; i2++) {
-				displayBlock[i2].style.display = "none";
-			}
-			var editIcon = document.getElementsByClassName("onEdit");
-			for (var i = 0; i < editIcon.length; i++) {
-				editIcon[i].style.display = "block";
-			}
-			this.getView().byId("save2").setVisible(false);
-			this.getView().byId("cancel").setVisible(false);
-			window.history.back();
-
-			// var oHistory = History.getInstance();
-			// var sPreviousHash = oHistory.getPreviousHash();
-
-			// if (sPreviousHash !== undefined) {
-			// 	window.history.go(-1);
-			// } else {
-			// 	var oRouter = this.getOwnerComponent().getRouter();
-			// 	oRouter.navTo("overview", {}, true);
-			// }
 		}
 	});
 

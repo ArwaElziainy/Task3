@@ -1,9 +1,6 @@
-.sapMShellGlobalOuterBackground {
-    background: #ffffff !important;
-}
-
-.sapMBarContainer {
-    background-color: #ffffff;
+html[data-sap-ui-animation='on'] .sapMNavItem,
+html[data-sap-ui-animation='on'] .sapMNavItem.sapMPage {
+    background-color: #fff;
 }
 
 #__button0-inner {
@@ -14,7 +11,22 @@
 .sapMSFF {
     border-radius: 10px;
     height: 1.7rem;
+    margin-top: 6px;
 }
+
+.sapMIBar {
+    margin: 10px auto 0 auto !important;
+    background-color: #ffffff !important;
+}
+
+
+/*.sapMBarChild.sapMBtnBase{*/
+
+
+/*	float:right !important;*/
+
+
+/*}*/
 
 .sapMSFB {
     line-height: 1.5rem;
@@ -35,6 +47,14 @@
     cursor: default;
 }
 
+.sapMTBNewFlex {
+    justify-content: flex-end !important;
+}
+
+.sapMTBNewFlex span bdi {
+    cursor: pointer;
+}
+
 Button.go span bdi {
     background-color: #0070f2;
     color: #ffffff;
@@ -42,22 +62,16 @@ Button.go span bdi {
     border-radius: 5px;
     cursor: pointer;
 }
-.sapMLIBFocusable:focus{
-	outline:1px solid  #0070f2 !important;
+
+.sapMLIBFocusable:focus {
+    outline: 1px solid #0070f2 !important;
 }
-.sapMTableRowCustomFocus:focus>:not(.sapMListTblDummyCell:last-child)::before{
-	top:0;
-	bottom:0;
-	border-top:1px solid  #0070f2 !important;
-	border-bottom:1px solid  #0070f2 !important;
-	border-left:1px solid  #0070f2 !important;
-	border-right:1px solid  #0070f2 !important;
-}
+
 .sapMBtn {
     border: none !important;
 }
 
-#__button0-BDI-content:hover {
+Button.go span bdi:hover {
     background-color: #0064d9;
 }
 
@@ -70,42 +84,42 @@ html.sap-desktop .sapMBtn:focus>.sapMFocusable {
     background-color: #ffffff !important;
 }
 
-
-/*table{*/
-
-
-/*	margin:25px !important;*/
-
-
-/*}*/
-
 .sapMTableTH {
     background-color: #fff !important;
-}
-
-columns {
-    border-radius: 10px;
 }
 
 
 /*View2*/
 
+.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce{
+	background-color:#fff;
+}
+.sapUxAPObjectPageHeaderContentDesign-Light{
+	background-color:#fff !important;
+	box-shadow: 0 0 .25rem 0 rgba(34, 53, 72, 0.15), inset 0 -0.0625rem 0 0 #d9d9d9;
+	margin-bottom:40px;
+}
 .sapMLabel {
     color: #000 !important;
 }
-.sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState){
-	border-radius:10px;
-	height:1.7rem;
+
+.sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState) {
+    border-radius: 10px;
+    height: 1.7rem;
 }
-.sapMInputBase:not(.sapMInputBaseHasEndIcons):not(.sapMInputBaseHasBeginIcons) .sapMInputBaseContentWrapper{
-	height:1.7rem;
+
+.sapMInputBase:not(.sapMInputBaseHasEndIcons):not(.sapMInputBaseHasBeginIcons) .sapMInputBaseContentWrapper {
+    height: 1.7rem;
 }
+
 .sapMInputBase {
-	height:1.7rem;
+    height: 1.7rem;
 }
-.sapMInputBaseIconContainer .sapUiIcon.sapMInputBaseIcon{
-	line-height:1.7rem;
+
+.sapMInputBaseIconContainer .sapUiIcon.sapMInputBaseIcon {
+    line-height: 1.7rem;
 }
+
 .sapMBtnInner {
     background-color: transparent;
     border: none;
@@ -143,6 +157,9 @@ html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
     color: #0070f2;
 }
 
+.sapUxAPAnchorBar{
+	margin:0 !important;
+}
 .sapUxAPAnchorBar.sapMTB {
     background-color: #fff !important;
 }
@@ -176,37 +193,41 @@ html.sap-desktop .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
     outline: 1px solid #0070f2 !important;
     outline-offset: -1px;
 }
-.sapMFocus.sapMInputBase .sapMInputBaseContentWrapper:not(.sapMInputBaseDisabledWrapper)::before{
-	border:none;
-}
-.sapMFlexItem{
-	margin-left:10px;
+
+.sapMFocus.sapMInputBase .sapMInputBaseContentWrapper:not(.sapMInputBaseDisabledWrapper)::before {
+    border: none;
 }
 
-
-.marginLeft{
-	margin:0 0 0 25px;
-}
-#__box57 #__data276,#__box72 #__data281.sapMFlexItemAlignAuto {
-	min-width: 100% !important;
-}
-.sapUiFormCLSmallColumns .sapUiFormCLElement>.sapUiFormCLCellsS12{
-	width:auto !important;
+.sapMFlexItem {
+    margin-left: 10px;
 }
 
-/*View3*/
-.sapMFlexBoxAlignItemsStretch {
+.marginLeft {
+    margin: 0 0 0 25px;
+}
+
+#__box57 #__data276,
+#__box72 #__data281.sapMFlexItemAlignAuto {
+    min-width: 100% !important;
+}
+
+.sapUiFormCLSmallColumns .sapUiFormCLElement>.sapUiFormCLCellsS12 {
+    width: auto !important;
+}
+
+View3 .sapMFlexBoxAlignItemsStretch {
     align-items: center;
 }
 
-Button.save span bdi{
-	background-color: #0070f2 !important;
+Button.save span bdi {
+    background-color: #0070f2 !important;
     color: #ffffff;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
 }
-.save{
-	float:right;
-	margin-right:35px;
+
+.save {
+    float: right;
+    margin-right: 35px;
 }

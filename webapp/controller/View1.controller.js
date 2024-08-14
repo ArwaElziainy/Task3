@@ -19,6 +19,7 @@ sap.ui.define([
 			this.getView().setModel(oModel, "odataModel");
 
 		},
+		
 		onGo: function() {
 			var oModel = this.getView().getModel("odataModel");
 			var oTable = this.byId("table");
